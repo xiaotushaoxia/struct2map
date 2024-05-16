@@ -1,4 +1,4 @@
-module struct2map
+module github.com/xiaotushaoxia/struct2map
 
 go 1.18
 
