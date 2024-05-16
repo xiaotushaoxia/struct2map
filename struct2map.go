@@ -104,7 +104,8 @@ func (c *Convertor) convertSingle(f reflect.Value) any {
 		return c.convertSingle(elem)
 	case reflect.Array, reflect.Slice:
 		if f.IsNil() {
-			return nil
+			var vv []any
+			return vv
 		}
 		l := make([]any, f.Len())
 		// at first convertSingle return (result any, ok bool)

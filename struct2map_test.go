@@ -148,10 +148,10 @@ func Test_Convert_withSlice(t *testing.T) {
 	)
 
 	test4(quicktest.New(t), bbc, [4]string{
-		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] <nil> 1.22 <nil>]]",
-		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] <nil> 1.22 <nil>]]",
-		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] <nil> 1.22 <nil>]]",
-		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] <nil> 1.22 <nil>]]",
+		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] [] 1.22 <nil>]]",
+		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] [] 1.22 <nil>]]",
+		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] [] 1.22 <nil>]]",
+		"map[VS:[1 <nil> map[] map[1:2 5:map[a:b] tu:1] 2 test1 map[] [] [] 1.22 <nil>]]",
 	})
 }
 
@@ -197,10 +197,10 @@ func Test_Convert_withPtrAnyInSlice(t *testing.T) {
 	bbc.VS = append(bbc.VS, &nm, 1, 2, &nilSlice, nilSlice, &mk)
 
 	test4(quicktest.New(t), bbc, [4]string{
-		"map[VS:[<nil> 1 2 <nil> <nil> 12323] Va:<nil>]",
-		"map[VS:[<nil> 1 2 <nil> <nil> 12323] Va:<nil>]",
-		"map[VS:[<nil> 1 2 <nil> <nil> 12323] Va:<nil>]",
-		"map[VS:[<nil> 1 2 <nil> <nil> 12323] Va:<nil>]",
+		"map[VS:[<nil> 1 2 [] [] 12323] Va:<nil>]",
+		"map[VS:[<nil> 1 2 [] [] 12323] Va:<nil>]",
+		"map[VS:[<nil> 1 2 [] [] 12323] Va:<nil>]",
+		"map[VS:[<nil> 1 2 [] [] 12323] Va:<nil>]",
 	})
 }
 
@@ -211,22 +211,22 @@ func Test_Convert_withNilSlice(t *testing.T) {
 	bbc := BBC{}
 	pbbc := &bbc
 	test4(quicktest.New(t), pbbc, [4]string{
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
 	})
 	test4(quicktest.New(t), bbc, [4]string{
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
 	})
 	test4(quicktest.New(t), &pbbc, [4]string{
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
-		"map[VS:<nil>]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
+		"map[VS:[]]",
 	})
 }
 
